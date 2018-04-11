@@ -36,6 +36,21 @@ npm run dev
 如果只想使用普通的PHP MVC框架及路由,請直接使用根目錄 Router 文件進行控制器路由引導,并在控制器內展示前台根目錄 View 目錄下的文件
 
 
+## 注意:
+
+由於系統差異,package.json 打包命令默認支持linux和 mac
+
+如果是 windows 系統,請替換package.json內script部分響應代碼,代碼如下:
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "set NODE_ENV=development && node node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "set NODE_ENV=development && node node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "set NODE_ENV=development && webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "set NODE_ENV=production && node node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+
+
 
 
 
