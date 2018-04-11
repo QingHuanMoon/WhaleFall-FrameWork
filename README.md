@@ -13,8 +13,10 @@
 
 5. 单独的路由类,方便控制URL
 
-6. 近期将集成NuxtJS作为前端SPA的SSR渲染中间件
+6. 集成了VueJS,VueRouter,Vuex,Axios,jQuery,Lodash以便開發 SPA 和前後端分離應用
 
-7. 近期将使用WebPack集成VueJS作为前端SPA编写支持
+7. 近期将集成NuxtJS作为前端SPA的SSR渲染中间件
+
+
 
 
