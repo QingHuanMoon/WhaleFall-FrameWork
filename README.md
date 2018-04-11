@@ -21,7 +21,9 @@
 
 如果想使用 Vue 進行 SPA 開發,請先安裝依賴
 
-npm i || cnpm i
+npm i
+或
+cnpm i
 
 然後使用以下命令進行服務器運行
 
