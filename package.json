@@ -26,8 +26,8 @@
     "jquery": "^3.3.1",
     "laravel-mix": "^2.1.11",
     "lodash": "^4.17.5",
-    "vue": "^2.5.16",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "san": "^3.5.4",
+    "san-loader": "^0.0.7",
+    "san-router": "^1.2.0"
   }
 }

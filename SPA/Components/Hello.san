@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1>Run Hot</h1>
+  </div>
+</template>
+
+<script>
+
+</script>
+
+<style>
+  body {
+    background-color: pink;
+  }
+</style>

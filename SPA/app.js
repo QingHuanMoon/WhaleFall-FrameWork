@@ -1,9 +1,20 @@
 require('./bootstrap.js')
-import Vue from 'vue'
-import router from './Router/index.js'
+
+var san = require('san')
+var sanRouter = require('san-router');
+var router = sanRouter.router;
+var Link = sanRouter.Link;
+
+var Hello = require('./Components/Hello.san')
 
 
-new Vue({
-    el:'#app',
-    router,
-});
+router.add({
+  rule: '/',
+  Component:Hello,
+  target:'#app'
+})
+
+router.start()
+
+
+
