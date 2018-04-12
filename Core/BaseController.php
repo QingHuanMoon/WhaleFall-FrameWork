@@ -16,6 +16,8 @@ class BaseController extends \Smarty
   {
     parent::__construct();
     $this->template_dir = VIEW_PATH;
-    $this->compile_dir=CACHE;
+    $this->compile_dir = COMP_PATH;
+    $this->caching = true;
+    $this->cache_dir = CACHE;
   }
 }

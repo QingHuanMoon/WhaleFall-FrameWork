@@ -38,6 +38,7 @@ class App
     define('RESOURCE', ROOT_PATH . 'resource/');
     define('CACHE', ROOT_PATH . 'Caching/');
     define('SPA_PATH', 'SPA/');
+    define('COMP_PATH',ROOT_PATH . 'RunTime/Compile/');
   }
 
   public static function getUrl(){
