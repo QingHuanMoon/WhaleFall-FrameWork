@@ -25,6 +25,7 @@ class App
   public static function Run() {
     self::defDir();
     self::getUrl();
+    self::setRunTimeConfig();
     self::whoops_error();
     self::startOrm();
     self::Route();
@@ -57,8 +58,8 @@ class App
     $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
     switch ($routeInfo[0]) {
       case Dispatcher::NOT_FOUND:
-        // ... 404 Not Found
-        break;
+          self::errorRouter($_SERVER['REQUEST_URI']);
+          break;
       case Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
         // ... 405 Method Not Allowed
@@ -72,6 +73,14 @@ class App
     /** 上面都是基础实现的方法 在fast-router有**/
     //把对应的参数与控制器的关系放在静态变量方便分发
     self::$routerInfo = $routeInfo;
+  }
+
+
+  public static function setRunTimeConfig () {
+      define('PLATFORM',explode('/',self::$routerInfo[1])[0]);
+      define('MODULE',explode('/',self::$routerInfo[1])[1]);
+      define('CONTROLLER',explode('@',explode('/',self::$routerInfo[1])[2])[0]);
+      define('METHOD',explode('@',explode('/',self::$routerInfo[1])[2])[1]);
   }
 
   public static function whoops_error() {
@@ -103,9 +112,9 @@ class App
       if (!empty($actionParameters)) {
         foreach ($actionParameters as $actionP) {
           $parame = $actionP->getType()->getName();
-          $parameters[] = new $parame;
+          self::$parameters = new $parame;
         }
-        self::$htmlresult = $obj->$action(...$parameters);
+        self::$htmlresult = $obj->$action(...self::$parameters);
       } else {
         self::$htmlresult = $obj->$action();
       }
@@ -130,4 +139,21 @@ class App
     $capsule->addConnection(require '../Conf/database.php');
     $capsule->bootEloquent();
   }
+
+  private static function errorRouter ($url) {
+      $info = array_slice(explode('/',$url),2);
+      list($platform,$module,$controller,$method,$filename) = $info;
+      $classname = $platform . '/' .$module . '/' .$controller . '@' . $method;
+      $routerInfo = [
+          1,$classname,[]
+      ];
+      self::$routerInfo = $routerInfo;
+      self::setRunTimeConfig();
+      self::whoops_error();
+      self::startOrm();
+      self::Route();
+      self::send();
+      die;
+  }
+
 }

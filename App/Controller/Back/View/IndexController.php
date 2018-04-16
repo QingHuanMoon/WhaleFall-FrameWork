@@ -16,8 +16,6 @@ use Libs\Request;
 class IndexController extends BaseController
 {
   public function showIndex() {
-      $path = SPA_PATH . 'app.js';
-      $this->assign('path',$path);
-    $this->display('index.php');
+      $this->display('Home.html');
   }
 }
