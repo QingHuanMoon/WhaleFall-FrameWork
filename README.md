@@ -15,9 +15,11 @@
 
 6. 實現全站靜態地址自動訪問,以全路徑靜態地址作為訪問,會自動將404頁面交給單獨的控制器處理 URL, 實現靜態路徑再次分發,自動生成最新靜態文件
 
-6. 集成了VueJS,VueRouter,Vuex,Axios,jQuery,Lodash以便開發 SPA 和前後端分離應用
+6. 集成了VueJS,VueRouter,Vuex,Axios,jQuery,Lodash以便開發 SPA 和前後端分離應用  `請查看vue分支`
 
 7. 近期将集成NuxtJS作为前端SPA的SSR渲染中间件
+
+8. 集成了百度的San框架及San-Router,以Vue Like 的代碼風格寫支持 IE8 的前端 SPA `請查看san分支`
 
 
 
