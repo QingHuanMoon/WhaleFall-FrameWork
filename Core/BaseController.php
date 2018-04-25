@@ -9,42 +9,44 @@
 namespace Core;
 
 
-class BaseController extends \Smarty
+use Libs\Request;
+use Philo\Blade\Blade;
+
+class BaseController extends Blade
 {
 
   public function __construct()
   {
-    parent::__construct();
-    $this->setTemplateDir(VIEW_PATH);
-    $this->setCompileDir(COMP_PATH . '/' . PLATFORM . '/' . MODULE . '/' . CONTROLLER . '/');
-    $this->setCacheDir(CACHE . '/' . PLATFORM . '/' . MODULE . '/' . CONTROLLER . '/');
-    $this->caching = true;
+    parent::__construct(VIEW_PATH, CACHE);
   }
 
+    // 渲染并缓存模板
+    public function display  ($template = null, $vars) {
+      $params = Request::$params;
+        // 是否存在 HTML 緩存文件
+        $path = 'Tpl/' . PLATFORM . '/' . MODULE . '/' . CONTROLLER . '/'  . METHOD . '/';
+        foreach ($params as $k => $v) {
+            $path = $path . $v . '/';
+        }
+        $filename = $path . $template . '.html';
+        if(file_exists($filename)) {
+            header("location:/" . $filename);
+        } else {
+            // 獲取內存中的緩存字符串
+            $content = $this->view()->make($template)->with($vars)->__toString();
+            // 獲取運行時目錄常亮
+            if( !is_dir($path)) {
+                mkdir($path,0744,true);
+                if ( !file_exists($filename)) {
+                    $fp = fopen($filename,'w');
+                    fwrite($fp, $content);
+                    fclose($fp);
+                }
+            }
+            // 調用父類方法,展示模版
+            header("location:/" . $filename);
+        }
+    }
 
-  public function display  ($template = null, $cache_id = null, $compile_id = null, $parent = null) {
-      // 打開緩存
-      ob_clean();
-      ob_start();
-      // 是否存在 HTML 緩存文件
-      $filename = 'Tpl/' . PLATFORM . '/' . MODULE . '/' . CONTROLLER . '/'  . METHOD . '/' . $template;
-      if(file_exists($filename)) {
-          header("location:" . $filename);
-      } else {
-          // 調用父類方法,展示模版
-          parent::display($template,$compile_id,$compile_id,$parent);
-          // 獲取內存中的緩存字符串
-          $content = ob_get_contents();
-          // 獲取運行時目錄常亮
-          $path = 'Tpl/' . PLATFORM . '/' . MODULE . '/' . CONTROLLER . '/' . METHOD . '/';
-          if( !is_dir($path)) {
-              mkdir($path,0744,true);
-              if ( !file_exists($path . $template)) {
-                  $fp = fopen($path .$template,'w');
-                  fwrite($fp, $content);
-                  fclose($fp);
-              }
-          } ;
-      }
-  }
+    // 是否存在缓存模板，存在则删除
 }

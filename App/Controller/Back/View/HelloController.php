@@ -9,9 +9,11 @@
 namespace App\Controller\Back\View;
 
 
+use Libs\Request;
+
 class HelloController
 {
-    public function showArticle() {
-        var_dump($_GET);
+    public function showArticle(Request $request) {
+        return $request->get('id');
     }
 }

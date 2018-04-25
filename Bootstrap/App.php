@@ -13,6 +13,7 @@ use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
 use Illuminate\Database\Capsule\Manager;
 use Libs\Conf;
+use Libs\Request;
 use Noodlehaus\ErrorException;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
@@ -22,6 +23,7 @@ class App
   private static $parameters = [];
   private static $routerInfo;
   private static $htmlresult;
+
   public static function Run() {
     self::defDir();
     self::getUrl();
@@ -70,9 +72,11 @@ class App
         // ... call $handler with $vars
         break;
     }
-    /** 上面都是基础实现的方法 在fast-router有**/
+    /** 上面都是基础实现的方法 在fast-router有 **/
     //把对应的参数与控制器的关系放在静态变量方便分发
     self::$routerInfo = $routeInfo;
+    // 保存參數
+    Request::$params = $routeInfo[2];
   }
 
 
@@ -114,7 +118,7 @@ class App
           $parame = $actionP->getType()->getName();
           self::$parameters = new $parame;
         }
-        self::$htmlresult = $obj->$action(...self::$parameters);
+        self::$htmlresult = $obj->$action(...[self::$parameters]);
       } else {
         self::$htmlresult = $obj->$action();
       }

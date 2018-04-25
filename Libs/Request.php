@@ -11,6 +11,9 @@ namespace Libs;
 
 class Request
 {
+    public static $params;
+
   public function get($getkey) {
+      return self::$params[$getkey];
   }
 }
