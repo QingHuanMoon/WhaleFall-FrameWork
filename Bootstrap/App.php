@@ -145,12 +145,20 @@ class App
   }
 
   private static function errorRouter ($url) {
+      $params = [];
       $info = array_slice(explode('/',$url),2);
-      list($platform,$module,$controller,$method,$filename) = $info;
+      $routerinfos = array_slice($info,0,4);
+      $paramsList = array_slice($info,4,count($info) - 5);
+      list($platform,$module,$controller,$method) = $routerinfos;
       $classname = $platform . '/' .$module . '/' .$controller . '@' . $method;
+      foreach ($paramsList as $v) {
+          $p = explode('&',$v);
+          $params[$p[0]] = $p[1];
+      }
       $routerInfo = [
-          1,$classname,[]
+          1,$classname,$params
       ];
+      Request::$params = $params;
       self::$routerInfo = $routerInfo;
       self::setRunTimeConfig();
       self::whoops_error();

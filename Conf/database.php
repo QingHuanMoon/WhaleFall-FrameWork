@@ -12,7 +12,7 @@ return
 
   'host'      => 'localhost:8889',
 
-  'database'  => 'QH',
+  'database'  => 'Whalefall',
 
   'username'  => 'root',
 
