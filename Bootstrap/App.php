@@ -13,6 +13,7 @@ use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
 use Illuminate\Database\Capsule\Manager;
 use Libs\Conf;
+use Libs\Request;
 use Noodlehaus\ErrorException;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
@@ -22,9 +23,11 @@ class App
   private static $parameters = [];
   private static $routerInfo;
   private static $htmlresult;
+
   public static function Run() {
     self::defDir();
     self::getUrl();
+    self::setRunTimeConfig();
     self::whoops_error();
     self::startOrm();
     self::Route();
@@ -38,6 +41,7 @@ class App
     define('RESOURCE', ROOT_PATH . 'resource/');
     define('CACHE', ROOT_PATH . 'Caching/');
     define('SPA_PATH', 'SPA/');
+    define('COMP_PATH',ROOT_PATH . 'RunTime/Compile/');
   }
 
   public static function getUrl(){
@@ -56,8 +60,8 @@ class App
     $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
     switch ($routeInfo[0]) {
       case Dispatcher::NOT_FOUND:
-        // ... 404 Not Found
-        break;
+          self::errorRouter($_SERVER['REQUEST_URI']);
+          break;
       case Dispatcher::METHOD_NOT_ALLOWED:
         $allowedMethods = $routeInfo[1];
         // ... 405 Method Not Allowed
@@ -68,9 +72,19 @@ class App
         // ... call $handler with $vars
         break;
     }
-    /** 上面都是基础实现的方法 在fast-router有**/
+    /** 上面都是基础实现的方法 在fast-router有 **/
     //把对应的参数与控制器的关系放在静态变量方便分发
     self::$routerInfo = $routeInfo;
+    // 保存參數
+    Request::$params = $routeInfo[2];
+  }
+
+
+  public static function setRunTimeConfig () {
+      define('PLATFORM',explode('/',self::$routerInfo[1])[0]);
+      define('MODULE',explode('/',self::$routerInfo[1])[1]);
+      define('CONTROLLER',explode('@',explode('/',self::$routerInfo[1])[2])[0]);
+      define('METHOD',explode('@',explode('/',self::$routerInfo[1])[2])[1]);
   }
 
   public static function whoops_error() {
@@ -102,9 +116,9 @@ class App
       if (!empty($actionParameters)) {
         foreach ($actionParameters as $actionP) {
           $parame = $actionP->getType()->getName();
-          $parameters[] = new $parame;
+          self::$parameters = new $parame;
         }
-        self::$htmlresult = $obj->$action(...$parameters);
+        self::$htmlresult = $obj->$action(...[self::$parameters]);
       } else {
         self::$htmlresult = $obj->$action();
       }
@@ -129,4 +143,29 @@ class App
     $capsule->addConnection(require '../Conf/database.php');
     $capsule->bootEloquent();
   }
+
+  private static function errorRouter ($url) {
+      $params = [];
+      $info = array_slice(explode('/',$url),2);
+      $routerinfos = array_slice($info,0,4);
+      $paramsList = array_slice($info,4,count($info) - 5);
+      list($platform,$module,$controller,$method) = $routerinfos;
+      $classname = $platform . '/' .$module . '/' .$controller . '@' . $method;
+      foreach ($paramsList as $v) {
+          $p = explode('&',$v);
+          $params[$p[0]] = $p[1];
+      }
+      $routerInfo = [
+          1,$classname,$params
+      ];
+      Request::$params = $params;
+      self::$routerInfo = $routerInfo;
+      self::setRunTimeConfig();
+      self::whoops_error();
+      self::startOrm();
+      self::Route();
+      self::send();
+      die;
+  }
+
 }

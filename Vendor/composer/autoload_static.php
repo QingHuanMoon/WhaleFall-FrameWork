@@ -10,7 +10,6 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        'f084d01b0a599f67676cffef638aa95b' => __DIR__ . '/..' . '/smarty/smarty/libs/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -22,6 +21,8 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
+            'Symfony\\Component\\Finder\\' => 25,
+            'Symfony\\Component\\Debug\\' => 24,
             'Service\\' => 8,
         ),
         'P' => 
@@ -29,6 +30,7 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Philo\\Blade\\' => 12,
         ),
         'N' => 
         array (
@@ -40,7 +42,10 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         ),
         'I' => 
         array (
+            'Illuminate\\View\\' => 16,
             'Illuminate\\Support\\' => 19,
+            'Illuminate\\Filesystem\\' => 22,
+            'Illuminate\\Events\\' => 18,
             'Illuminate\\Database\\' => 20,
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
@@ -56,7 +61,6 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         'C' => 
         array (
             'Core\\' => 5,
-            'Carbon\\' => 7,
         ),
         'B' => 
         array (
@@ -81,6 +85,14 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
+        'Symfony\\Component\\Finder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/finder',
+        ),
+        'Symfony\\Component\\Debug\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/debug',
+        ),
         'Service\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Service',
@@ -97,6 +109,10 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Philo\\Blade\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/philo/laravel-blade/src',
+        ),
         'Noodlehaus\\' => 
         array (
             0 => __DIR__ . '/..' . '/hassankhan/config/src',
@@ -105,9 +121,21 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         array (
             0 => __DIR__ . '/../..' . '/Libs',
         ),
+        'Illuminate\\View\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/view',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/support',
+        ),
+        'Illuminate\\Filesystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/filesystem',
+        ),
+        'Illuminate\\Events\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/illuminate/events',
         ),
         'Illuminate\\Database\\' => 
         array (
@@ -133,10 +161,6 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         array (
             0 => __DIR__ . '/../..' . '/Core',
         ),
-        'Carbon\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
-        ),
         'Bootstrap\\' => 
         array (
             0 => __DIR__ . '/../..' . '/Bootstrap',
@@ -147,11 +171,16 @@ class ComposerStaticInit0b55cb9cf532040179578049b393b4ea
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/nesbot/carbon/src',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit0b55cb9cf532040179578049b393b4ea::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0b55cb9cf532040179578049b393b4ea::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit0b55cb9cf532040179578049b393b4ea::$fallbackDirsPsr4;
 
         }, null, ClassLoader::class);
     }

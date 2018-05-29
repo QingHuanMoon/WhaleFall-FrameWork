@@ -8,5 +8,10 @@
 
 return
 [
+    // 美化报错开关
   'debug' => true,
+
+    // 自动静态缓存开关
+  'autocache' => true,
+
 ];

@@ -193,8 +193,8 @@
     },
     {
         "name": "illuminate/container",
-        "version": "v5.6.16",
-        "version_normalized": "5.6.16.0",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/container.git",
@@ -202,7 +202,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/container/zipball/4a42d667a05ec6d31f05b532cdac7e8e68e5ea2a",
+            "url": "https://files.phpcomposer.com/files/illuminate/container/4a42d667a05ec6d31f05b532cdac7e8e68e5ea2a.zip",
             "reference": "4a42d667a05ec6d31f05b532cdac7e8e68e5ea2a",
             "shasum": ""
         },
@@ -239,8 +239,8 @@
     },
     {
         "name": "illuminate/contracts",
-        "version": "v5.6.16",
-        "version_normalized": "5.6.16.0",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/contracts.git",
@@ -248,7 +248,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/contracts/zipball/322ec80498b3bf85bc4025d028e130a9b50242b9",
+            "url": "https://files.phpcomposer.com/files/illuminate/contracts/322ec80498b3bf85bc4025d028e130a9b50242b9.zip",
             "reference": "322ec80498b3bf85bc4025d028e130a9b50242b9",
             "shasum": ""
         },
@@ -285,17 +285,17 @@
     },
     {
         "name": "illuminate/database",
-        "version": "v5.6.16",
-        "version_normalized": "5.6.16.0",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/database.git",
-            "reference": "10ae33d266d71e43ca60a3a9675237836bf7b89d"
+            "reference": "a949e082dbb520fdcb2798e0a5408669724aa197"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/database/zipball/10ae33d266d71e43ca60a3a9675237836bf7b89d",
-            "reference": "10ae33d266d71e43ca60a3a9675237836bf7b89d",
+            "url": "https://files.phpcomposer.com/files/illuminate/database/a949e082dbb520fdcb2798e0a5408669724aa197.zip",
+            "reference": "a949e082dbb520fdcb2798e0a5408669724aa197",
             "shasum": ""
         },
         "require": {
@@ -312,7 +312,7 @@
             "illuminate/filesystem": "Required to use the migrations (5.6.*).",
             "illuminate/pagination": "Required to paginate the result set (5.6.*)."
         },
-        "time": "2018-04-09T13:16:47+00:00",
+        "time": "2018-04-17T12:36:27+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -345,18 +345,119 @@
         ]
     },
     {
-        "name": "illuminate/support",
-        "version": "v5.6.16",
-        "version_normalized": "5.6.16.0",
+        "name": "illuminate/events",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/illuminate/support.git",
-            "reference": "fad0669f858423679497a17f973261cc32f9a5a8"
+            "url": "https://github.com/illuminate/events.git",
+            "reference": "b6e73ed40478cef2ef98d5ddb27f333291606cea"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/support/zipball/fad0669f858423679497a17f973261cc32f9a5a8",
-            "reference": "fad0669f858423679497a17f973261cc32f9a5a8",
+            "url": "https://files.phpcomposer.com/files/illuminate/events/b6e73ed40478cef2ef98d5ddb27f333291606cea.zip",
+            "reference": "b6e73ed40478cef2ef98d5ddb27f333291606cea",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/container": "5.6.*",
+            "illuminate/contracts": "5.6.*",
+            "illuminate/support": "5.6.*",
+            "php": "^7.1.3"
+        },
+        "time": "2018-02-26T19:00:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Events\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Events package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "illuminate/filesystem",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/filesystem.git",
+            "reference": "c9ab9376076cedd88a374d7281d62b619634d578"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/illuminate/filesystem/c9ab9376076cedd88a374d7281d62b619634d578.zip",
+            "reference": "c9ab9376076cedd88a374d7281d62b619634d578",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/contracts": "5.6.*",
+            "illuminate/support": "5.6.*",
+            "php": "^7.1.3",
+            "symfony/finder": "~4.0"
+        },
+        "suggest": {
+            "league/flysystem": "Required to use the Flysystem local and FTP drivers (~1.0).",
+            "league/flysystem-aws-s3-v3": "Required to use the Flysystem S3 driver (~1.0).",
+            "league/flysystem-cached-adapter": "Required to use the Flysystem cache (~1.0).",
+            "league/flysystem-rackspace": "Required to use the Flysystem Rackspace driver (~1.0).",
+            "league/flysystem-sftp": "Required to use the Flysystem SFTP driver (~1.0)."
+        },
+        "time": "2018-04-06T13:15:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\Filesystem\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate Filesystem package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "illuminate/support",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/illuminate/support.git",
+            "reference": "cc8d6f5cef3a901de6bb7d1b362102a6db001085"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/illuminate/support/cc8d6f5cef3a901de6bb7d1b362102a6db001085.zip",
+            "reference": "cc8d6f5cef3a901de6bb7d1b362102a6db001085",
             "shasum": ""
         },
         "require": {
@@ -374,7 +475,7 @@
             "symfony/process": "Required to use the composer class (~4.0).",
             "symfony/var-dumper": "Required to use the dd function (~4.0)."
         },
-        "time": "2018-04-05T21:19:22+00:00",
+        "time": "2018-04-17T12:26:47+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -404,18 +505,68 @@
         "homepage": "https://laravel.com"
     },
     {
-        "name": "nesbot/carbon",
-        "version": "1.25.0",
-        "version_normalized": "1.25.0.0",
+        "name": "illuminate/view",
+        "version": "v5.6.17",
+        "version_normalized": "5.6.17.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4"
+            "url": "https://github.com/illuminate/view.git",
+            "reference": "54eaf45ee7946d8f8cde13d5e89c5ea2e997040d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/cbcf13da0b531767e39eb86e9687f5deba9857b4",
-            "reference": "cbcf13da0b531767e39eb86e9687f5deba9857b4",
+            "url": "https://files.phpcomposer.com/files/illuminate/view/54eaf45ee7946d8f8cde13d5e89c5ea2e997040d.zip",
+            "reference": "54eaf45ee7946d8f8cde13d5e89c5ea2e997040d",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/container": "5.6.*",
+            "illuminate/contracts": "5.6.*",
+            "illuminate/events": "5.6.*",
+            "illuminate/filesystem": "5.6.*",
+            "illuminate/support": "5.6.*",
+            "php": "^7.1.3",
+            "symfony/debug": "~4.0"
+        },
+        "time": "2018-04-03T12:56:35+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Illuminate\\View\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylor@laravel.com"
+            }
+        ],
+        "description": "The Illuminate View package.",
+        "homepage": "https://laravel.com"
+    },
+    {
+        "name": "nesbot/carbon",
+        "version": "1.27.0",
+        "version_normalized": "1.27.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/briannesbitt/Carbon.git",
+            "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/briannesbitt/Carbon/ef81c39b67200dcd7401c24363dcac05ac3a4fe9.zip",
+            "reference": "ef81c39b67200dcd7401c24363dcac05ac3a4fe9",
             "shasum": ""
         },
         "require": {
@@ -426,17 +577,12 @@
             "friendsofphp/php-cs-fixer": "~2",
             "phpunit/phpunit": "^4.8.35 || ^5.7"
         },
-        "time": "2018-03-19T15:50:49+00:00",
+        "time": "2018-04-23T09:02:57+00:00",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.23-dev"
-            }
-        },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Carbon\\": "src/Carbon/"
+                "": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -504,6 +650,49 @@
         "keywords": [
             "router",
             "routing"
+        ]
+    },
+    {
+        "name": "philo/laravel-blade",
+        "version": "v3.1",
+        "version_normalized": "3.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PhiloNL/Laravel-Blade.git",
+            "reference": "3f0ce2ee198604c53c25188110e6d7b5e887527a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/PhiloNL/Laravel-Blade/3f0ce2ee198604c53c25188110e6d7b5e887527a.zip",
+            "reference": "3f0ce2ee198604c53c25188110e6d7b5e887527a",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/events": "~5",
+            "illuminate/view": "~5"
+        },
+        "time": "2015-12-04T09:42:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Philo\\Blade\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Philo Hermans",
+                "email": "me@philohermans.com"
+            }
+        ],
+        "description": "Use the simple and yet powerful Laravel Blade templating engine as a standalone component.",
+        "keywords": [
+            "blade",
+            "laravel"
         ]
     },
     {
@@ -657,59 +846,113 @@
         ]
     },
     {
-        "name": "smarty/smarty",
-        "version": "v3.1.31",
-        "version_normalized": "3.1.31.0",
+        "name": "symfony/debug",
+        "version": "v4.0.8",
+        "version_normalized": "4.0.8.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/smarty-php/smarty.git",
-            "reference": "c7d42e4a327c402897dd587871434888fde1e7a9"
+            "url": "https://github.com/symfony/debug.git",
+            "reference": "5961d02d48828671f5d8a7805e06579d692f6ede"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/c7d42e4a327c402897dd587871434888fde1e7a9",
-            "reference": "c7d42e4a327c402897dd587871434888fde1e7a9",
+            "url": "https://files.phpcomposer.com/files/symfony/debug/5961d02d48828671f5d8a7805e06579d692f6ede.zip",
+            "reference": "5961d02d48828671f5d8a7805e06579d692f6ede",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.2"
+            "php": "^7.1.3",
+            "psr/log": "~1.0"
         },
-        "time": "2016-12-14T21:57:25+00:00",
+        "conflict": {
+            "symfony/http-kernel": "<3.4"
+        },
+        "require-dev": {
+            "symfony/http-kernel": "~3.4|~4.0"
+        },
+        "time": "2018-04-03T05:24:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "3.1.x-dev"
+                "dev-master": "4.0-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
-            "files": [
-                "libs/bootstrap.php"
+            "psr-4": {
+                "Symfony\\Component\\Debug\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
-            "LGPL-3.0"
+            "MIT"
         ],
         "authors": [
             {
-                "name": "Monte Ohrt",
-                "email": "monte@ohrt.com"
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
             },
             {
-                "name": "Uwe Tews",
-                "email": "uwe.tews@googlemail.com"
-            },
-            {
-                "name": "Rodney Rehm",
-                "email": "rodney.rehm@medialize.de"
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
             }
         ],
-        "description": "Smarty - the compiling PHP template engine",
-        "homepage": "http://www.smarty.net",
-        "keywords": [
-            "templating"
-        ]
+        "description": "Symfony Debug Component",
+        "homepage": "https://symfony.com"
+    },
+    {
+        "name": "symfony/finder",
+        "version": "v4.0.8",
+        "version_normalized": "4.0.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/finder.git",
+            "reference": "ca27c02b7a3fef4828c998c2ff9ba7aae1641c49"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/finder/ca27c02b7a3fef4828c998c2ff9ba7aae1641c49.zip",
+            "reference": "ca27c02b7a3fef4828c998c2ff9ba7aae1641c49",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "time": "2018-04-04T05:10:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Finder\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Finder Component",
+        "homepage": "https://symfony.com"
     },
     {
         "name": "symfony/polyfill-mbstring",
